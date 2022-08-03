@@ -1,0 +1,51 @@
+-- Creating tables
+CREATE TABLE student (
+  student_id INT PRIMARY KEY,
+  name VARCHAR(40),
+  major VARCHAR(40)
+  -- PRIMARY KEY(student_id)
+);
+
+DESCRIBE student;
+DROP TABLE student;
+ALTER TABLE student ADD gpa DECIMAL;
+ALTER TABLE student DROP COLUMN gpa;
+
+-- Inserting
+INSERT INTO student VALUES(1, 'Jack', 'Biology');
+INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+INSERT INTO student VALUES(4, 'Jack', 'Biology');
+INSERT INTO student VALUES(5, 'Mike', 'Computer Science');
+
+-- Update and Delete
+
+
+DELETE FROM student;
+
+DELETE FROM student
+WHERE student_id = 4;
+
+DELETE FROM student
+WHERE major = 'Sociology' AND name = 'Kate';
+
+UPDATE student
+SET major = 'Undecided';
+
+UPDATE student
+SET name = 'Johnny'
+WHERE student_id = 4;
+
+UPDATE student
+SET major = 'Biological Sciences'
+WHERE major = 'Biology';
+
+UPDATE student
+SET major = 'Biosociology'
+WHERE major = 'Biology' OR major = 'sociology'
+
+UPDATE student
+SET major = 'Undecided', name = 'Tom'
+WHERE student_id = 4;
+
+
